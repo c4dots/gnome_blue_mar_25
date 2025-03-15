@@ -101,7 +101,7 @@ if [ "$INSTALL_THEMES" == "true" ]; then
         echo ">> Installing Collid Theme..."
         git clone https://github.com/vinceliuice/Colloid-gtk-theme
         cd Colloid-gtk-theme
-        sh install.sh
+        bash install.sh
         cd ..
     else
         echo ">> Colloid Theme is already installed, skipping."
@@ -220,7 +220,7 @@ if [ "$UPDATE_ZSH" == "true" ]; then
         echo ">> Oh my ZShell is already installed."
     else
         echo ">> Installing Oh my ZShell..."
-        yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        yes | bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding "'<Super>t'"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command "'gnome-terminal -- zsh'"
         dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name "'terminal'"
