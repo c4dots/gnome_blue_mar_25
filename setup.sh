@@ -53,38 +53,6 @@ for ARG in "$@"; do
   esac
 done
 
-########################################### THEMES ###########################################
-
-# Theme
-if [ "$INSTALL_THEMES" == "true" ]; then
-    if [ ! -d "$HOME/.themes/Colloid-Dark" ]; then
-        echo ">> Installing Collid Theme..."
-        git clone https://github.com/vinceliuice/Colloid-gtk-theme
-        cd Colloid-gtk-theme
-        sh install.sh
-        cd ..
-    else
-        echo ">> Colloid Theme is already installed, skipping."
-    fi
-
-    dconf write /org/gnome/desktop/interface/gtk-theme "'Colloid-Dark'"
-    dconf write /org/gnome/shell/extensions/user-theme/name "'Colloid-Dark'"
-fi
-
-# Icons
-if [ "$INSTALL_ICONS" == "true" ]; then
-    if [ ! -d "$HOME/.icons/Futura" ]; then
-        echo ">> Installing Futura Icon Theme..."
-        git clone https://github.com/coderhisham/Futura-Icon-Pack &> /dev/null
-        cp -R Futura-Icon-Pack ~/.icons/Futura
-    else
-        echo ">> Futura Icon Theme is already installed, skipping."
-    fi
-    dconf write /org/gnome/desktop/interface/icon-theme "'Futura'"
-fi
-
-########################################### THEMES ###########################################
-
 ########################################### PACKAGES ###########################################
 
 PACKAGES=( "nautilus" "git" "python3" "ttf-ubuntu-font-family" "gnome-shell-extensions" "gnome-text-editor" "gnome-tweaks" "zsh" "powerline" "powerline-fonts" "neofetch" "diodon" )
@@ -124,6 +92,38 @@ if [ "$INSTALL_PACKAGES" == "true" ]; then
 fi
 
 ########################################### PACKAGES ###########################################
+
+########################################### THEMES ###########################################
+
+# Theme
+if [ "$INSTALL_THEMES" == "true" ]; then
+    if [ ! -d "$HOME/.themes/Colloid-Dark" ]; then
+        echo ">> Installing Collid Theme..."
+        git clone https://github.com/vinceliuice/Colloid-gtk-theme
+        cd Colloid-gtk-theme
+        sh install.sh
+        cd ..
+    else
+        echo ">> Colloid Theme is already installed, skipping."
+    fi
+
+    dconf write /org/gnome/desktop/interface/gtk-theme "'Colloid-Dark'"
+    dconf write /org/gnome/shell/extensions/user-theme/name "'Colloid-Dark'"
+fi
+
+# Icons
+if [ "$INSTALL_ICONS" == "true" ]; then
+    if [ ! -d "$HOME/.icons/Futura" ]; then
+        echo ">> Installing Futura Icon Theme..."
+        git clone https://github.com/coderhisham/Futura-Icon-Pack &> /dev/null
+        cp -R Futura-Icon-Pack ~/.icons/Futura
+    else
+        echo ">> Futura Icon Theme is already installed, skipping."
+    fi
+    dconf write /org/gnome/desktop/interface/icon-theme "'Futura'"
+fi
+
+########################################### THEMES ###########################################
 
 ########################################### EXTENSIONS ###########################################
 
