@@ -99,7 +99,7 @@ fi
 if [ "$INSTALL_THEMES" == "true" ]; then
     if [ ! -d "$HOME/.themes/Colloid-Dark" ]; then
         echo ">> Installing Collid Theme..."
-        git clone https://github.com/vinceliuice/Colloid-gtk-theme
+        git clone https://github.com/vinceliuice/Colloid-gtk-theme &> /dev/null
         cd Colloid-gtk-theme
         bash install.sh
         cd ..
