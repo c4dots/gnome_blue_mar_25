@@ -226,6 +226,10 @@ if [ "$INSTALL_SEARCH_LIGHT" == "true" ]; then
     gnome-extensions enable search-light@icedman.github.com &> /dev/null
 fi
 
+if [ "$INSTALL_ARC_MENU" == "true" ]; then
+    gnome-extensions enable arcmenu@arcmenu.com &> /dev/null
+fi
+
 if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
     dbus-launch killall -HUP gnome-shell &> /dev/null
 fi
