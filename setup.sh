@@ -211,12 +211,6 @@ fi
 
 cd ..
 
-# Reload gnome shell
-echo ">> Reloading gnome shell..."
-if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
-    dbus-launch killall -HUP gnome-shell &> /dev/null
-fi
-
 # Enable extensions
 echo ">> Disabling extensions that might cause conflicts..."
 gnome-extensions disable openbar@neuromorph &> /dev/null
@@ -237,10 +231,6 @@ fi
 
 if [ "$INSTALL_ARC_MENU" == "true" ]; then
     gnome-extensions enable arcmenu@arcmenu.com &> /dev/null
-fi
-
-if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
-    dbus-launch killall -HUP gnome-shell &> /dev/null
 fi
 ########################################### EXTENSIONS ###########################################
 
